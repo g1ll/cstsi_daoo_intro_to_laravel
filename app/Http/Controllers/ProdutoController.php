@@ -10,13 +10,20 @@ class ProdutoController extends Controller
 
     private $produto;
 
-    public function index(){
+    public function __construct()
+    {
         $this->produto = new Produto();
+    }
+
+    public function index(){
         // return response()->json($this->produto->all());
         return view('produtos',['produtos'=>$this->produto->all()]);
     }
 
-    //show(id)->produto->find(id)
-
-
+    public function show($id)
+    {
+        return view('produto',[
+            'produto'=>$this->produto->find($id)
+        ]);
+    }
 }
