@@ -17,16 +17,21 @@
                 <th>qtd_estoque</th>
                 <th>preco</th>
                 <th>Importado</th>
+                <th>Ações</th>
             </tr>
         </thead>
         <tbody>
             @foreach($produtos as $produto)
             <tr>
-                <td>{{$produto->id}}</td>
+                <td><a href="{{route('show',$produto->id)}}">{{$produto->id}}</a></td>
                 <td>{{$produto->nome}}</td>
                 <td>{{$produto->qtd_estoque}}</td>
                 <td>{{$produto->preco}}</td>
                 <td>{{($produto->Importado)?'Sim':'Não'}}</td>
+                <td>
+                    <a href="{{route('edit',$produto->id)}}">Editar</a>
+                    <a href="{{route('delete',$produto->id)}}">Remover</a>
+                </td>
             </tr>
             @endforeach
         </tbody>
