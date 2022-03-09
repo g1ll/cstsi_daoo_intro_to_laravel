@@ -15,38 +15,38 @@ class ProdutoController extends Controller
     }
 
     public function show($id)
-    {   
-        try{
+    {
+        try {
             return response()->json(Produto::findOrFail($id));
-        }catch(Exception $error){
-            $messageError = [
-                'Erro'=>"O produto não encontrado com id:$id!",
-                'Exception'=>$error->getMessage()
-                // 'Trace'=>$error->getTrace()
-            ];
-            $statusHttp=404;
-            return response($messageError, $statusHttp);
+        } catch (Exception $error) {
+            $message = "O produto não encontrado com id:$id!";
+            return $this->errorMessage($error, $message, 404);
         }
     }
 
     public function store(Request $request)
     {
-        try{
+        try {
             $newProduto = $request->post();
-            $newProduto['importado']=($request->importado)?true:false;
+            $newProduto['importado'] = ($request->importado) ? true : false;
             $storedProtudo = Produto::create($newProduto);
             return response()->json([
-                'message'=>'Produto criado com sucesso!',
+                'message' => 'Produto criado com sucesso!',
                 'produto' => $storedProtudo
             ]);
-        }catch(Exception $error){
-            $messageError = [
-                'Erro'=>"Erro ao inserir o novo Produto!",
-                'Exception'=>$error->getMessage()
-                // 'Trace'=>$error->getTrace()
-            ];
-            $statusHttp=500;
-            return response($messageError, $statusHttp);
+        } catch (Exception $error) {
+            $message = 'Erro ao inserir o novo Produto!';
+            return $this->errorMessage($error, $message, 500, true);
         }
+    }
+
+    private function errorMessage($error, $message, $statusHttp, $trace = false)
+    {
+        $messageError = [
+            'Erro' => $message,
+            'Exception' => $error->getMessage()
+        ];
+        $trace && $messageError['Trace'] = $error->getTrace();
+        return response($messageError, $statusHttp);
     }
 }
