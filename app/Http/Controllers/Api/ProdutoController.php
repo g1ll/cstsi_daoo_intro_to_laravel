@@ -29,5 +29,24 @@ class ProdutoController extends Controller
         }
     }
 
-
+    public function store(Request $request)
+    {
+        try{
+            $newProduto = $request->post();
+            $newProduto['importado']=($request->importado)?true:false;
+            $storedProtudo = Produto::create($newProduto);
+            return response()->json([
+                'message'=>'Produto criado com sucesso!',
+                'produto' => $storedProtudo
+            ]);
+        }catch(Exception $error){
+            $messageError = [
+                'Erro'=>"Erro ao inserir o novo Produto!",
+                'Exception'=>$error->getMessage()
+                // 'Trace'=>$error->getTrace()
+            ];
+            $statusHttp=500;
+            return response($messageError, $statusHttp);
+        }
+    }
 }
