@@ -1,0 +1,224 @@
+{
+	"info": {
+		"_postman_id": "50e553cb-4f83-47d8-b004-5866a20742c2",
+		"name": "FORNECEDOR",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "POST FORNECEDORES STORE",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nome",
+							"value": "Advanced Micro Devices, Inc.",
+							"type": "text"
+						},
+						{
+							"key": "endereco",
+							"value": "Palo Alto, nr. 3456, California, USA",
+							"type": "text"
+						},
+						{
+							"key": "cnpj",
+							"value": "67.828.796/0004-45",
+							"type": "text"
+						},
+						{
+							"key": "telefone",
+							"value": "(21) 98755-8976",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/fornecedores/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"fornecedores",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FORNECEDORES SHOW",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/fornecedores/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"fornecedores",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT FORNECEDORES",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "nome",
+							"value": "Advanced Micro Devices, Inc. BR Office",
+							"type": "text"
+						},
+						{
+							"key": "endereco",
+							"value": "Filial; Av. Paulista, nr 4567, Sao Paulo, Brasil. Sede: Palo Alto, nr. 3456, California, USA",
+							"type": "text"
+						},
+						{
+							"key": "cnpj",
+							"value": "67.828.796/0004-45",
+							"type": "text",
+							"disabled": true
+						},
+						{
+							"key": "telefone",
+							"value": "(21) 98755-8976",
+							"type": "text",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8000/api/fornecedores/6",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"fornecedores",
+						"6"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FORNECEDORES INDEX",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/fornecedores/",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"fornecedores",
+						""
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE FORNECEDORES DESTROY",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/fornecedores/3",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"fornecedores",
+						"3"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "GET FORNECEDORES PRODUTOS",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"url": {
+					"raw": "http://localhost:8000/api/fornecedores/2/produtos",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8000",
+					"path": [
+						"api",
+						"fornecedores",
+						"2",
+						"produtos"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
