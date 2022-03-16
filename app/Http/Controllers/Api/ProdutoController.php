@@ -20,7 +20,7 @@ class ProdutoController extends Controller
             return response()->json(Produto::findOrFail($id));
         } catch (Exception $error) {
             $message = "O produto não encontrado com id:$id!";
-            return $this->errorMessage($error, $message, 404);
+            return $this->errorMessage($error, $message, 404,true);
         }
     }
 
@@ -52,6 +52,20 @@ class ProdutoController extends Controller
         }catch(Exception $error){
             $message = 'Erro ao atualizar o novo Produto!';
             return $this->errorMessage($error, $message, 500, true);
+        }
+    }
+
+    public function delete($id)
+    {
+        try {
+            if(Produto::findOrFail($id)->delete())
+                return response()->json([
+                    "Message"=>"Produto id:$id removido com sucesso!"
+                ]);
+            throw new Exception("Não foi possível remover produto!");
+        } catch (Exception $error) {
+            $message = "O produto não encontrado com id:$id!";
+            return $this->errorMessage($error, $message, 404);
         }
     }
 
