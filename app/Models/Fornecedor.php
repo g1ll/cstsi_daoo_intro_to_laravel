@@ -9,6 +9,12 @@ class Fornecedor extends Model
 {
     use HasFactory;
     protected $table = 'fornecedores';
+    protected $fillab = [
+        "nome",
+        "endereco",
+        "cnpj",
+        "telefone"
+    ];
 
     public function produtos()
     {
