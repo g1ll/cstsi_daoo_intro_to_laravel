@@ -40,6 +40,21 @@ class ProdutoController extends Controller
         }
     }
 
+    public function update(Request $request, $id)
+    {
+        try{
+            $newProduto = Produto::findOrFail($id);
+            $newProduto->update($request->all());
+            return response()->json([
+                "Message"=>"Produto atualizado com sucesso!",
+                "Produto"=>$newProduto
+            ]);
+        }catch(Exception $error){
+            $message = 'Erro ao atualizar o novo Produto!';
+            return $this->errorMessage($error, $message, 500, true);
+        }
+    }
+
     private function errorMessage($error, $message, $statusHttp, $trace = false)
     {
         $messageError = [
