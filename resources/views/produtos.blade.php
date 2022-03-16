@@ -27,7 +27,7 @@
                 <td>{{$produto->nome}}</td>
                 <td>{{$produto->qtd_estoque}}</td>
                 <td>{{$produto->preco}}</td>
-                <td>{{($produto->Importado)?'Sim':'Não'}}</td>
+                <td>{{($produto->importado)?'Sim':'Não'}}</td>
                 <td>
                     <a href="{{route('edit',$produto->id)}}">Editar</a>
                     <a href="{{route('delete',$produto->id)}}">Remover</a>
