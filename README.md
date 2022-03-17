@@ -1,6 +1,6 @@
 # CSTSI-DAOO: Projeto como Exemplos de Aula Sobre Laravel
 
-## Instrções para instalação:
+## Instruções para instalação:
 
 Renomeie o arquivo .env.example para .env e configure as variávels de conexão com o banco.
 
