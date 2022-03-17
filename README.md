@@ -16,7 +16,7 @@ Após a conclusão da instalação das dependências pelo **composer** execute o
 
 Após a criação das tabelas do banco de dados com o migrate rode o comando para popular com dados fake pelo seeder
 
->phpp artisan db:seed
+>php artisan db:seed
 
 Para iniciar o servidor interno do Laravel rode o seguitne comando:
 
