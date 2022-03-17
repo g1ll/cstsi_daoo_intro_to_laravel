@@ -1,4 +1,4 @@
-# CSTSI-DAOO: Projeto como Exemplo de Aula Sobre Laravel
+# CSTSI-DAOO: Projeto como Exemplos de Aula Sobre Laravel
 
 ## Instrções para instalação:
 
