@@ -2,13 +2,13 @@
 
 ## Instruções para instalação:
 
-Renomeie o arquivo .env.example para .env e configure as variávels de conexão com o banco.
+Renomeie o arquivo ***.env.example*** para **.env** e configure as variávels de conexão com o banco.
 
-De dentro da pasta raiz do projeto execute o comando de instalação das dependências com o composer
+De dentro da pasta raiz do projeto execute o comando de instalação das dependências com o ***composer***:
 
 >composer install
 
-Após a conclusão da instalação das dependências pelo composer execute os comandos para instalar as migrations:
+Após a conclusão da instalação das dependências pelo **composer** execute os comandos para instalar as ***migrations***:
 
 >php artisan migrate:install
 
