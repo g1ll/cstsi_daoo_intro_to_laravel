@@ -1,3 +1,31 @@
+# CSTSI-DAOO: Projeto como Exemplo de Aula Sobre Laravel
+
+## Instrções para instalação:
+
+Renomeie o arquivo .env.example para .env e configure as variávels de conexão com o banco.
+
+De dentro da pasta raiz do projeto execute o comando de instalação das dependências com o composer
+
+>composer install
+
+Após a conclusão da instalação das dependências pelo composer execute os comandos para instalar as migrations:
+
+>php artisan migrate:install
+
+>php artisan migrate:refresh
+
+Após a criação das tabelas do banco de dados com o migrate rode o comando para popular com dados fake pelo seeder
+
+>phpp artisan db:seed
+
+Para iniciar o servidor interno do Laravel rode o seguitne comando:
+
+>php artisan serve
+
+Pronto! Agora acesse a aplicação no endereço local mostrado no terminal, geralmente é http://127.0.0.1:8000
+
+
+
 <p align="center"><a href="https://laravel.com" target="_blank"><img src="https://raw.githubusercontent.com/laravel/art/master/logo-lockup/5%20SVG/2%20CMYK/1%20Full%20Color/laravel-logolockup-cmyk-red.svg" width="400"></a></p>
 
 <p align="center">
