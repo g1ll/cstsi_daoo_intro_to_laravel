@@ -3,15 +3,21 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
+use App\Http\Requests\ProdutoRequest;
 use App\Models\Produto;
 use Exception;
 use Illuminate\Http\Request;
 
 class ProdutoController extends Controller
 {
-    public function index()
+    public function index(Request $request)
     {
-        return response()->json(Produto::all());
+        $perPage = $request->query('per_page');
+        $produtosPaginated = Produto::paginate($perPage);
+        $produtosPaginated->appends([
+            'per_page'=>$perPage
+        ]);
+        return response()->json($produtosPaginated);
     }
 
     public function show($id)
@@ -24,7 +30,7 @@ class ProdutoController extends Controller
         }
     }
 
-    public function store(Request $request)
+    public function store(ProdutoRequest $request)
     {
         try {
             $newProduto = $request->post();
@@ -36,7 +42,7 @@ class ProdutoController extends Controller
             ]);
         } catch (Exception $error) {
             $message = 'Erro ao inserir o novo Produto!';
-            return $this->errorMessage($error, $message, 500, true);
+            return $this->errorMessage($error, $message, 500, false);
         }
     }
 
@@ -73,8 +79,11 @@ class ProdutoController extends Controller
     {
         $messageError = [
             'Erro' => $message,
-            'Exception' => $error->getMessage()
+            'Exception' => $error->getMessage(),
+            'Debug'=> $error
         ];
+        //$statusHttp = $error->status? $error->status : ($statusHttp?$statusHttp:500);
+        $statusHttp = $error->status ?? $statusHttp ?? 500;
         $trace && $messageError['Trace'] = $error->getTrace();
         return response($messageError, $statusHttp);
     }
