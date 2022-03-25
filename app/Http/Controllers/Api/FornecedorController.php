@@ -55,15 +55,7 @@ class FornecedorController extends Controller
      */
     public function show(Fornecedor $fornecedor)
     {
-        try {
-            if($fornecedor)
-                return $fornecedor;
-        }catch(Exception $error){
-            return response()->json([
-                "Message"=>"Fornecedor não encontrado!",
-                "Erro"=> $error->getMessage()
-            ],404);
-        }
+        return $fornecedor;
     }
 
     /**
