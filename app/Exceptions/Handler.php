@@ -3,6 +3,7 @@
 namespace App\Exceptions;
 
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 use Throwable;
 
 class Handler extends ExceptionHandler
@@ -37,5 +38,17 @@ class Handler extends ExceptionHandler
         $this->reportable(function (Throwable $e) {
             //
         });
+
+        $this->renderable(function (NotFoundHttpException $e) {
+            $message = $e->getMessage(); //Mensagem da exceção
+            //Gambiarra para pegar o Modelo e o ID pela mensagem da exceção ! :(
+            $model = explode(']',explode('\\',$message)[2])[0]; //Pegou o nome do Model
+            $id = trim(explode(']',explode('\\',$message)[2])[1]);//Pegou o id não encontrado
+            return response()->json([
+                            'Erro'=>"$model com o ID:$id  não encontrado!", //Minha mensagem personalizada
+                            'Mensagem'=>$e->getMessage() //Mensagem da Exceção
+                        ],404);   
+        });
+
     }
 }
