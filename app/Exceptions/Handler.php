@@ -47,7 +47,7 @@ class Handler extends ExceptionHandler
             return response()->json([
                             'Erro'=>"$model com o ID:$id  não encontrado!", //Minha mensagem personalizada
                             'Mensagem'=>$e->getMessage() //Mensagem da Exceção
-                        ],404);   
+                        ],404);//Status HTTP Not Found 
         });
 
     }
