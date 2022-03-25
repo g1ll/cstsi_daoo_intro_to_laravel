@@ -70,7 +70,7 @@ class ProdutoController extends Controller
                 ]);
             throw new Exception("Não foi possível remover produto!");
         } catch (Exception $error) {
-            $message = "O produto não encontrado com id:$id!";
+            $message = "O produto não foi encontrado com id:$id!";
             return $this->errorMessage($error, $message, 404);
         }
     }
