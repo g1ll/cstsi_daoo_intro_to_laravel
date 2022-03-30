@@ -28,7 +28,7 @@ Route::middleware('auth:sanctum')->get(
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
 Route::get('/produtos/{id}', [ProdutoController::class, 'show']);
-
+//Todas as rotas neste grupo estão sujeitas a autenticação
 Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/produtos', [ProdutoController::class, 'store']);
 
@@ -47,7 +47,7 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
 
-//Se registrarmos rotas fora do grupo, estas serão liberadas da autenticação
-//Aqui como exemplo liberamos acesso ao métodos index e show de Fornecedores
+//Se registrarmos rotas fora do grupo com o middleware sanctum, estas serão liberadas da autenticação
+//Como exemplo, liberamos acesso aos métodos index e show de Fornecedores
 Route::get('fornecedores',[FornecedorController::class,'index']);
 Route::get('fornecedores/{fornecedor}',[FornecedorController::class,'show']);
