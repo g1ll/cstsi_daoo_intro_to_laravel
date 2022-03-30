@@ -20,11 +20,11 @@ use Illuminate\Support\Facades\Route;
 
 Route::middleware('auth:sanctum')->get(
     '/user',
-    function () {
-        return auth()->user();
+    function (Request $request) {
+        //$request->user()
+        return auth()->user(); //usando helper auth() não necessida do Request
     }
 );
-
 
 Route::get('/produtos', [ProdutoController::class, 'index']);
 Route::get('/produtos/{id}', [ProdutoController::class, 'show']);
