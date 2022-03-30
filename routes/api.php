@@ -46,3 +46,8 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
 });
 
 Route::post('login', [LoginController::class, 'login'])->name('login');
+
+//Se registrarmos rotas fora do grupo, estas serão liberadas da autenticação
+//Aqui como exemplo liberamos acesso ao métodos index e show de Fornecedores
+Route::get('fornecedores',[FornecedorController::class,'index']);
+Route::get('fornecedores/{fornecedor}',[FornecedorController::class,'show']);
