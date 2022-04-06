@@ -40,7 +40,9 @@ class UserController extends Controller
                 $status = 400;
                 throw new Exception('Os dados devem ser enviados via POST!!');
             }
-            $newUser['password'] = password_hash($newUser['password'],PASSWORD_DEFAULT);
+            $newUser['password'] = password_hash(
+                $newUser['password'],
+                PASSWORD_DEFAULT);
             $response = [
                 'mensagem'=>'Usuário cadastrado com sucesso!!',
                 'user'=>User::create($newUser)
