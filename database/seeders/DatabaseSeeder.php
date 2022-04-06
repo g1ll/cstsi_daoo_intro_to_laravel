@@ -15,7 +15,7 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-         \App\Models\User::factory(10)->create();
-        //Fornecedor::factory(5)->hasProdutos(10)->create();
+         \App\Models\User::factory(5)->create();
+        Fornecedor::factory(5)->hasProdutos(10)->create();
     }
 }
