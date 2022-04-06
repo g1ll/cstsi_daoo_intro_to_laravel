@@ -26,7 +26,8 @@ class UserRequest extends FormRequest
         return [
             'name'      => 'required | string | max:50',
             'email'     => 'required | email | unique:users',
-            'password'  => 'required | min:8'
+            'password'  => 'required | min:8',
+            'is_admin'  => 'nullable | boolean'
         ];
     }
 
@@ -35,7 +36,8 @@ class UserRequest extends FormRequest
         return [
             'name.require'      => 'O nome é obrigatório!!',
             'email.require'     => 'O email é obrigatório!!',
-            'password.require'  => 'A senha é obrigatória!!'
+            'password.require'  => 'A senha é obrigatória!!',
+            'is_admin.boolean'  => 'O campo is_admin deverá ser 0 ou 1!'
         ];
     }
 }
