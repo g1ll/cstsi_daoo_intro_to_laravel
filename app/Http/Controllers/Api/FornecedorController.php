@@ -34,7 +34,12 @@ class FornecedorController extends Controller
      */
     public function store(Request $request)
     {
+        $statusHttp = 500;
         try{
+            if(!$request->user()->tokenCan('is-admin')){
+                $statusHttp = 403;//Forbbiden - Sem permissão
+                throw new Exception('Você não tem permissão!');
+            }
             return response()->json([
                 "Message"=>"Fornecedor inserido com sucesso!",
                 "Fornecedor"=>$this->fornecedor->create($request->post())
@@ -43,7 +48,7 @@ class FornecedorController extends Controller
             return response()->json([
                 "Erro"=>"Não foi possível criar novo Fornecedor!",
                 "Exception"=>$error->getMessage()
-            ]);
+            ],$statusHttp);
         }
     }
 
