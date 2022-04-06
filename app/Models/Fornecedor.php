@@ -9,7 +9,7 @@ class Fornecedor extends Model
 {
     use HasFactory;
     protected $table = 'fornecedores';
-    protected $fillab = [
+    protected $fillable = [
         "nome",
         "endereco",
         "cnpj",
