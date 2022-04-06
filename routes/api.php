@@ -25,7 +25,8 @@ Route::middleware('auth:sanctum')->get(
         // $user = auth()->user();
         return [
             'isAdmin' => $user->tokenCan('is-admin'),
-            'tokens' => $user->tokens
+            'tokens' => $user->tokens,
+            'currentToken'=>$user->currentAccessToken()->token
         ]; //usando helper auth() não necessida do Request
     }
 );
