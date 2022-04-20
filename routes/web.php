@@ -1,4 +1,6 @@
 <?php
+
+use App\Http\Controllers\FornecedorController;
 use  App\Http\Controllers\ProdutoController;
 use App\Http\Controllers\HomeController;
 use App\Models\Produto;
@@ -44,4 +46,4 @@ Route::post('/produto/{id}/update',[ProdutoController::class,'update'])->name('u
 Route::get('/produto/{id}/delete',[ProdutoController::class,'delete'])->name('delete');
 Route::post('/produto/{id}/remove',[ProdutoController::class,'remove'])->name('removeProduto');
 
-
+//Route::resource('fornecedores',FornecedorController::class);
