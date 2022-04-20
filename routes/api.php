@@ -40,10 +40,11 @@ Route::group(['middleware' => ['auth:sanctum']], function () {
     Route::post('/produtos', [ProdutoController::class, 'store']);
     Route::put('/produtos/{id}', [ProdutoController::class, 'update']);
     Route::delete('/produtos/{id}', [ProdutoController::class, 'delete']);
-
+    
+    // php artisan make:controller FornecedorController -m Fornecedor --resource --api
     Route::apiResource('fornecedores', FornecedorController::class)
         ->parameters(["fornecedores" => "fornecedor"]);
-
+        
     //Abilidade
     Route::put(
         'fornecedores/{fornecedor}',
@@ -65,3 +66,4 @@ Route::post('login', [LoginController::class, 'login'])->name('login');
 //Como exemplo, liberamos acesso aos métodos index e show de Fornecedores
 Route::get('fornecedores', [FornecedorController::class, 'index']);
 Route::get('fornecedores/{fornecedor}', [FornecedorController::class, 'show']);
+    // ->middleware(['auth:sanctum','ability:is-admin']);
