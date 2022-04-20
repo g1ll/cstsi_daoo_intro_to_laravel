@@ -17,6 +17,7 @@ return new class extends Migration
             $table->id();
             $table->foreignId('fornecedor_id')
                 ->references('id')->on('fornecedores')
+                // ->constrained('fornecedores')
                 ->cascadeOnDelete();
             $table->text('nome');
             $table->text('descricao');
